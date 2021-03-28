@@ -1,0 +1,76 @@
+package contabancaria;
+
+public class bankTiago {
+	
+	public static void main(String[] args) {
+		
+		datesBank db = new datesBank();
+		
+		db.banque = "Itaú Personalité";
+		db.agence = "0025-0";
+		db.compt = "25865-9";
+		db.nomDuTitulaire = "Tiago Santana";
+		db.typeDeCompt = 'C';
+		db.soudeDuCompt = 10000.00;
+		
+		db.deposer(5500.00);
+		db.sortir(150.00);
+		db.imprimer();
+		
+		db.sortir(1200.00);
+		db.deposer(2500.00);
+		db.imprimer();
+
+*******************************************************************************************************************************
+
+    package contabancaria;
+
+public class datesBank {
+
+	public static void main(String[] args) {
+
+	}
+
+	// attributs
+
+	String banque;
+	String nomDuTitulaire;
+	String agence;
+	String compt;
+	char typeDeCompt;
+	double soudeDuCompt;
+
+	// méthodes
+
+	void sortir(double quantite) {
+
+		if (quantite < 0 && quantite >= soudeDuCompt)
+			;
+		{
+			soudeDuCompt -= quantite;
+
+			System.out.println("Tirage de $" + quantite + " réalisée avec succès!\n");
+
+		}
+
+		System.out.println("Le solde de votre compte est: " + soudeDuCompt + "\n");
+
+	}
+
+	void deposer(double quantite) {
+		if (quantite > 0) {
+			soudeDuCompt += quantite;
+
+			System.out.println("Dépôt réalisé à la valeur de: $" + quantite + " réalisée avec succès!\n");
+		}
+	}
+
+	void imprimer() {
+
+		System.out.printf("Banque: %s | Agence: %s | Compt: %s\n", banque, agence, compt);
+		System.out.printf("Nom du Titulaire: %s | Type De Compt: %c | Soude Du Compt: %.2f\n", nomDuTitulaire,
+				typeDeCompt, soudeDuCompt);
+
+	}
+
+}
